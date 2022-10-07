@@ -1,0 +1,4 @@
+{
+  // 絶対パスを設定した後はさいきどうする
+  "compilerOptions": { "baseUrl": "." }
+}
