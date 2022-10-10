@@ -1,17 +1,24 @@
-import Logo from 'components/logo'
 import { useState } from 'react'
 import styled from 'styled-components'
 import Link from 'next/link'
+import Logo from './Logo'
 const HeaderBox = styled.header`
   background-color: #000;
   position: relative;
-  top: 0px;
-  left: 0px;
+
   border: 2px solid #000;
+  text-align: center;
 `
+
 const NavBox = styled.nav`
+  position: relative;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
   ul {
     position: absolute;
+
     margin: 0;
     padding-top: 50px;
     padding-bottom: 100px;
@@ -54,6 +61,10 @@ export default function Header() {
   const onClick = () => {
     setBoolState((prev) => !prev)
   }
+
+  const closeBool = () => {
+    setBoolState(false)
+  }
   return (
     <HeaderBox>
       <NavBox boolState={boolState}>
@@ -64,17 +75,17 @@ export default function Header() {
         <ul>
           <li>
             <Link href="/">
-              <a>Home</a>
+              <a onClick={closeBool}>Home</a>
             </Link>
           </li>
           <li>
             <Link href="/about">
-              <a>About</a>
+              <a onClick={closeBool}>About</a>
             </Link>
           </li>
           <li>
             <Link href="/contact">
-              <a>Contact</a>
+              <a onClick={closeBool}>Contact</a>
             </Link>
           </li>
         </ul>

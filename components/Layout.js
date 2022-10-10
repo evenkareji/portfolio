@@ -1,10 +1,13 @@
-import Header from 'components/Header'
-import Footer from 'components/Footer'
+import Header from './Header'
+import Footer from './Footer'
+import { Containner } from '../pages/styles'
 export default function Layout({ children }) {
   return (
     <>
       <Header />
-      <main>{children}</main>
+      <Containner>
+        <main>{children}</main>
+      </Containner>
       <Footer />
     </>
   )
