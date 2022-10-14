@@ -79,7 +79,7 @@ export default function Header() {
             </Link>
           </li>
           <li>
-            <Link href="/about">
+            <Link href="/blog">
               <a onClick={closeBool}>About</a>
             </Link>
           </li>

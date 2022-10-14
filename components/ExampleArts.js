@@ -8,6 +8,7 @@ const ArticleEle = styled.article`
   border: 2px solid #000;
   width: 100%;
   margin-bottom: 8px;
+  left: 0;
   @media (min-width: 680px) {
     width: 20%;
   }
@@ -15,6 +16,39 @@ const ArticleEle = styled.article`
 export default function Arts() {
   return (
     <ArticlesOfContainner>
+      <ArticleEle>
+        <dl>
+          <dt>image</dt>
+          <ArticleInsideContainner>
+            <dd>タグ</dd>
+            <dd>content</dd>
+            <dd>author</dd>
+            <dd>date</dd>
+          </ArticleInsideContainner>
+        </dl>
+      </ArticleEle>
+      <ArticleEle>
+        <dl>
+          <dt>image</dt>
+          <ArticleInsideContainner>
+            <dd>タグ</dd>
+            <dd>content</dd>
+            <dd>author</dd>
+            <dd>date</dd>
+          </ArticleInsideContainner>
+        </dl>
+      </ArticleEle>
+      <ArticleEle>
+        <dl>
+          <dt>image</dt>
+          <ArticleInsideContainner>
+            <dd>タグ</dd>
+            <dd>content</dd>
+            <dd>author</dd>
+            <dd>date</dd>
+          </ArticleInsideContainner>
+        </dl>
+      </ArticleEle>
       <ArticleEle>
         <dl>
           <dt>image</dt>

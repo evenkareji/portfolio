@@ -10,6 +10,7 @@ export const ArticlesOfContainner = styled.div`
   @media (min-width: 680px) {
     flex-wrap: wrap;
     display: flex;
+    /* justify-content: space-between; */
   }
 `
 
