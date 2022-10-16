@@ -16,6 +16,7 @@ const NavBox = styled.nav`
   right: 0px;
   left: 0px;
   bottom: 0px;
+  z-index: 10000;
   ul {
     position: absolute;
 

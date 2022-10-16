@@ -11,6 +11,9 @@ import { extractText } from '../../lib/extra-text'
 import Meta from 'components/meta'
 import { getPlaiceholder } from 'plaiceholder'
 import { eyecatchLocal } from '../../lib/constants'
+import { prevNextPost } from '../../lib/prev-next-post'
+import Pagination from '../../components/Paginaton'
+
 const ArticleBox = styled.div`
   width: 90%;
 `
@@ -28,6 +31,8 @@ export default function Post({
   eyecatch,
   categories,
   description,
+  prevPost,
+  nextPost,
 }) {
   return (
     <ArticleFlex>
@@ -42,6 +47,7 @@ export default function Post({
         <PostHeader title={title} subtitle="Blog Article" publish={publish} />
         <figure>
           <Image
+            key={eyecatch.url}
             src={eyecatch.url}
             alt=""
             layout="responsive"
@@ -56,6 +62,20 @@ export default function Post({
         <PostBody>
           <ConvertBody contentHTML={content} />
         </PostBody>
+        <Pagination
+          prevText={prevPost.title}
+          prevUrl={`/blog/${prevPost.slug}`}
+          nextText={nextPost.title}
+          nextUrl={`/blog/${nextPost.slug}`}
+        />
+        {/* <div>
+          {prevPost.title}
+          {prevPost.slug}
+        </div>
+        <div>
+          {nextPost.title}
+          {nextPost.slug}
+        </div> */}
       </ArticleBox>
       <CategoriesBox>
         <PostCategories categories={categories} />
@@ -84,6 +104,9 @@ export async function getStaticProps(context) {
 
   const { base64 } = await getPlaiceholder(eyecatch.url)
   eyecatch.blurDataURL = base64
+
+  const allSlugs = await getAllSlugs()
+  const [prevPost, nextPost] = prevNextPost(allSlugs, slug)
   return {
     props: {
       title: post.title,
@@ -92,6 +115,8 @@ export async function getStaticProps(context) {
       eyecatch: eyecatch,
       categories: post.categories,
       description: description,
+      prevPost: prevPost,
+      nextPost: nextPost,
     },
   }
 }
